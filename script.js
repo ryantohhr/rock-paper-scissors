@@ -16,7 +16,9 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // Prompt user for input (use prompt)
+    let humanChoice = prompt("Enter your choice: ");
 
+    return humanChoice;
 } // Returns "Rock", "Paper" or "Scissors" (User's choice)
 
 // Track scores with variables, starting at 0
