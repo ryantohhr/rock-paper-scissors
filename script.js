@@ -109,4 +109,8 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     // Play round 5 times
+    for (let i = 0; i < 5; i++){
+        console.log(`Round ${i+1}`);
+        playRound(getHumanChoice(), getComputerChoice());
+    };
 }
