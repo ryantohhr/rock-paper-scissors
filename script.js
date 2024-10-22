@@ -27,10 +27,84 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     // Make choices case-insensitive
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
+
+    // Compare choices
+    let compare;
+    switch (humanChoice) {
+        case "rock": {
+            switch (computerChoice) {
+                case "rock": {
+                    compare = 't';
+                    break;
+                }
+                case "paper": {
+                    compare = 'l';
+                    break;
+                }
+                case "scissors": {
+                    compare = 'w';
+                    break;
+                }
+            }
+            break;
+        }
+        case "paper": {
+            switch (computerChoice) {
+                case "rock": {
+                    compare = 'w';
+                    break;
+                }
+                case "paper": {
+                    compare = 't';
+                    break;
+                }
+                case "scissors": {
+                    compare = 'l';
+                    break;
+                }
+            }
+            break;
+        }
+        case "scissors": {
+            switch (computerChoice) {
+                case "rock": {
+                    compare = 'l';
+                    break;
+                }
+                case "paper": {
+                    compare = 'w';
+                    break;
+                }
+                case "scissors": {
+                    compare = 't';
+                    break;
+                }
+            }
+            break;
+        }
+    };
 
     // Print round winner (use console.log)
-
     // Increment humanScore or computerScore depending on winner
+    switch (compare) {
+        case 'w': {
+            humanScore++;
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            break;
+        }
+        case 'l': {
+            computerScore++;
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            break;
+        }
+        case 't': {
+            console.log(`It's a tie!`);
+            break;
+        }
+    };
+    console.log(`Your score: ${humanScore}\nComputer's score: ${computerScore}`)
 }
 
 function playGame() {
