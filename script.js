@@ -107,10 +107,11 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Your score: ${humanScore}\nComputer's score: ${computerScore}`)
 }
 
-function playGame() {
-    // Play round 5 times
-    for (let i = 0; i < 5; i++){
-        console.log(`Round ${i+1}`);
-        playRound(getHumanChoice(), getComputerChoice());
-    };
-}
+// function playGame() {
+//     // Play round 5 times
+//     for (let i = 0; i < 5; i++){
+//         console.log(`Round ${i+1}`);
+//         playRound(getHumanChoice(), getComputerChoice());
+//     };
+// }
+
