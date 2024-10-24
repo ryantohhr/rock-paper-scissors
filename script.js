@@ -1,4 +1,4 @@
-
+const results = document.querySelector(".results");
 
 function getComputerChoice() {
     // Get random number (Math.random())
@@ -16,12 +16,12 @@ function getComputerChoice() {
     }
 } // Returns "Rock", "Paper" or "Scissors" (Computer's randomised choice)
 
-function getHumanChoice() {
-    // Prompt user for input (use prompt)
-    let humanChoice = prompt("Enter your choice: ");
+// function getHumanChoice() {
+//     // Prompt user for input (use prompt)
+//     let humanChoice = prompt("Enter your choice: ");
 
-    return humanChoice;
-} // Returns "Rock", "Paper" or "Scissors" (User's choice)
+//     return humanChoice;
+// } // Returns "Rock", "Paper" or "Scissors" (User's choice)
 
 // Track scores with variables, starting at 0
 let humanScore = 0;
@@ -88,25 +88,33 @@ function playRound(humanChoice, computerChoice) {
         }
     };
 
+    // Create elements to display results
+    const winloss = document.createElement("div");
+    const humanScoreDisplay = document.createElement("div");
+    const computerScoreDisplay = document.createElement("div");
     // Print round winner (use console.log)
     // Increment humanScore or computerScore depending on winner
     switch (compare) {
         case 'w': {
             humanScore++;
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            winloss.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             break;
         }
         case 'l': {
             computerScore++;
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            winloss.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
             break;
         }
         case 't': {
-            console.log(`It's a tie!`);
+            winloss.textContent = `It's a tie!`;
             break;
         }
     };
-    console.log(`Your score: ${humanScore}\nComputer's score: ${computerScore}`)
+    results.appendChild(winloss);
+    humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+    computerScoreDisplay.textContent = `Computer's score: ${computerScore}`;
+    results.appendChild(humanScoreDisplay);
+    results.appendChild(computerScoreDisplay);
 }
 
 // function playGame() {
@@ -122,11 +130,11 @@ const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 
 rockBtn.addEventListener('click', function() {
-    playRound("rock", getComputerChoice());
+    playRound("Rock", getComputerChoice());
 });
 paperBtn.addEventListener('click', function() {
-    playRound("paper", getComputerChoice());
+    playRound("Paper", getComputerChoice());
 });
 scissorsBtn.addEventListener('click', function() {
-    playRound("scissors", getComputerChoice());
+    playRound("Scissors", getComputerChoice());
 });
