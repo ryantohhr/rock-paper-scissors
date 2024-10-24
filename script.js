@@ -1,3 +1,5 @@
+
+
 function getComputerChoice() {
     // Get random number (Math.random())
     let randomNum = Math.random();
@@ -115,3 +117,16 @@ function playRound(humanChoice, computerChoice) {
 //     };
 // }
 
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
+
+rockBtn.addEventListener('click', function() {
+    playRound("rock", getComputerChoice());
+});
+paperBtn.addEventListener('click', function() {
+    playRound("paper", getComputerChoice());
+});
+scissorsBtn.addEventListener('click', function() {
+    playRound("scissors", getComputerChoice());
+});
