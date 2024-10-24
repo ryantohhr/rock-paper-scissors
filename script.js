@@ -16,27 +16,20 @@ function getComputerChoice() {
     }
 } // Returns "Rock", "Paper" or "Scissors" (Computer's randomised choice)
 
-// function getHumanChoice() {
-//     // Prompt user for input (use prompt)
-//     let humanChoice = prompt("Enter your choice: ");
-
-//     return humanChoice;
-// } // Returns "Rock", "Paper" or "Scissors" (User's choice)
-
 // Track scores with variables, starting at 0
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     // Make choices case-insensitive
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice = computerChoice.toLowerCase();
+    humanChoiceCheck = humanChoice.toLowerCase();
+    computerChoiceCheck = computerChoice.toLowerCase();
 
     // Compare choices
     let compare;
-    switch (humanChoice) {
+    switch (humanChoiceCheck) {
         case "rock": {
-            switch (computerChoice) {
+            switch (computerChoiceCheck) {
                 case "rock": {
                     compare = 't';
                     break;
@@ -53,7 +46,7 @@ function playRound(humanChoice, computerChoice) {
             break;
         }
         case "paper": {
-            switch (computerChoice) {
+            switch (computerChoiceCheck) {
                 case "rock": {
                     compare = 'w';
                     break;
@@ -70,7 +63,7 @@ function playRound(humanChoice, computerChoice) {
             break;
         }
         case "scissors": {
-            switch (computerChoice) {
+            switch (computerChoiceCheck) {
                 case "rock": {
                     compare = 'l';
                     break;
@@ -117,13 +110,6 @@ function playRound(humanChoice, computerChoice) {
     results.appendChild(computerScoreDisplay);
 }
 
-// function playGame() {
-//     // Play round 5 times
-//     for (let i = 0; i < 5; i++){
-//         console.log(`Round ${i+1}`);
-//         playRound(getHumanChoice(), getComputerChoice());
-//     };
-// }
 
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
