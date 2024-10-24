@@ -110,6 +110,13 @@ function playRound(humanChoice, computerChoice) {
     round.appendChild(humanScoreDisplay);
     round.appendChild(computerScoreDisplay);
     results.appendChild(round);
+    const optionBtn = document.querySelectorAll(".option");
+    if ((humanScore === 5) || (computerScore === 5)) {
+        displayFinalResults();
+        optionBtn.forEach(function(btn) {
+            btn.remove();
+        });
+    }
 }
 
 
@@ -129,6 +136,22 @@ scissorsBtn.addEventListener('click', function() {
 
 const body = document.querySelector("body");
 
-if ((humanScore === 5) || (computerScore ===5)) {
-    
+function displayFinalResults() {
+    const overallWinner = document.createElement("div");
+    overallWinner.style.cssText = "display: flex; flex-direction: column; align-items: center;";
+    const winner = document.createElement("div");
+    const replayBtn = document.createElement("button");
+    replayBtn.textContent = "Play again?";
+    replayBtn.addEventListener('click', function() {
+        location.reload(true);
+    });
+    if (humanScore === 5) {
+        winner.textContent = "You Win!";
+    }
+    else {
+        winner.textContent = "You Lose!";
+    }
+    overallWinner.appendChild(winner);
+    overallWinner.appendChild(replayBtn);
+    body.appendChild(overallWinner);
 }
