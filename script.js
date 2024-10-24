@@ -82,6 +82,7 @@ function playRound(humanChoice, computerChoice) {
     };
 
     // Create elements to display results
+    const round = document.createElement("div");
     const winloss = document.createElement("div");
     const humanScoreDisplay = document.createElement("div");
     const computerScoreDisplay = document.createElement("div");
@@ -103,11 +104,12 @@ function playRound(humanChoice, computerChoice) {
             break;
         }
     };
-    results.appendChild(winloss);
+    round.appendChild(winloss);
     humanScoreDisplay.textContent = `Your score: ${humanScore}`;
     computerScoreDisplay.textContent = `Computer's score: ${computerScore}`;
-    results.appendChild(humanScoreDisplay);
-    results.appendChild(computerScoreDisplay);
+    round.appendChild(humanScoreDisplay);
+    round.appendChild(computerScoreDisplay);
+    results.appendChild(round);
 }
 
 
@@ -124,3 +126,9 @@ paperBtn.addEventListener('click', function() {
 scissorsBtn.addEventListener('click', function() {
     playRound("Scissors", getComputerChoice());
 });
+
+const body = document.querySelector("body");
+
+if ((humanScore === 5) || (computerScore ===5)) {
+    
+}
